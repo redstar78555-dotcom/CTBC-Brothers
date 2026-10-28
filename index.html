@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6c900" />
+    <meta
+      name="description"
+      content="中信兄弟球員與團隊應援曲整理，支援搜尋、歌詞提示、應援舞連結及網頁內 YouTube 播放。"
+    />
+    <title>CTBC Brothers 應援曲庫</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#catalog">跳到曲目列表</a>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#top" aria-label="回到首頁頂端">
+          <span class="brand-mark" aria-hidden="true">B</span>
+          <span>
+            <strong>CTBC Brothers</strong>
+            <small>應援曲庫</small>
+          </span>
+        </a>
+        <nav aria-label="主要導覽">
+          <a href="#catalog">曲目</a>
+          <a href="#about">使用說明</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span></span> 非官方球迷整理</p>
+            <h1 id="hero-title">黃衫一起唱，<br /><em>應援不漏拍。</em></h1>
+            <p class="hero-lead">
+              球員曲、團隊歌與動作示範集中整理。按下播放，不離開頁面就能先練一遍。
+            </p>
+            <a class="hero-cta" href="#catalog">
+              開始找應援曲
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <div class="hero-art" aria-hidden="true">
+            <div class="score-card">
+              <span class="score-label">CHEER MODE</span>
+              <strong>PLAY<br />LOUD</strong>
+              <div class="score-line"><span></span><i></i><i></i><i></i></div>
+            </div>
+            <div class="baseball baseball-one"></div>
+            <div class="baseball baseball-two"></div>
+            <div class="hero-number">B</div>
+          </div>
+        </div>
+        <div class="ticker" aria-hidden="true">
+          <div>PASSION · BROTHERS · BASEBALL · TAIWAN · PASSION · BROTHERS · BASEBALL · TAIWAN ·</div>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="catalog" aria-labelledby="catalog-title">
+        <div class="shell">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">CHEER LIBRARY</p>
+              <h2 id="catalog-title">找到你的應援節奏</h2>
+            </div>
+            <div class="catalog-meta" aria-live="polite">
+              顯示 <strong id="visible-count">0</strong> 首
+              <span>資料版本 2026.10</span>
+            </div>
+          </div>
+
+          <div class="controls" aria-label="曲目搜尋與分類">
+            <label class="search-box" for="search-input">
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
+                <path d="m21 21-4.3-4.3m2.3-5.2A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              <span class="sr-only">搜尋球員、背號或曲名</span>
+              <input id="search-input" type="search" placeholder="搜尋球員、背號或曲名…" autocomplete="off" />
+              <button id="clear-search" class="clear-search" type="button" aria-label="清除搜尋" hidden>×</button>
+            </label>
+
+            <div class="filter-group" role="group" aria-label="曲目分類">
+              <button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">全部</button>
+              <button type="button" class="filter-button" data-filter="player" aria-pressed="false">球員應援</button>
+              <button type="button" class="filter-button" data-filter="team" aria-pressed="false">團隊應援</button>
+              <button type="button" class="filter-button" data-filter="classic" aria-pressed="false">經典應援</button>
+            </div>
+          </div>
+
+          <section class="player-panel" id="player-panel" aria-labelledby="now-playing-title" hidden>
+            <div class="player-copy">
+              <p class="player-kicker"><span></span> NOW PLAYING</p>
+              <h3 id="now-playing-title" tabindex="-1">正在播放</h3>
+              <p id="now-playing-meta"></p>
+              <div class="player-links">
+                <a id="youtube-fallback" href="#" target="_blank" rel="noopener noreferrer">在 YouTube 開啟 <span aria-hidden="true">↗</span></a>
+                <button id="stop-player" type="button">停止播放</button>
+              </div>
+            </div>
+            <div class="video-frame">
+              <iframe
+                id="youtube-player"
+                title="YouTube 應援曲播放器"
+                src="about:blank"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </section>
+
+          <div id="catalog-grid" class="catalog-grid" aria-live="polite"></div>
+
+          <div id="empty-state" class="empty-state" hidden>
+            <span aria-hidden="true">⚾</span>
+            <h3>沒有找到相符曲目</h3>
+            <p>換個關鍵字，或回到全部曲目再找找看。</p>
+            <button id="reset-filters" type="button">清除搜尋與分類</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" id="about" aria-labelledby="about-title">
+        <div class="shell about-grid">
+          <div>
+            <p class="section-kicker">BEFORE YOU PLAY</p>
+            <h2 id="about-title">先知道這三件事</h2>
+          </div>
+          <ol class="notes-list">
+            <li>
+              <span>01</span>
+              <div><strong>影片直接在站內播放</strong><p>使用 YouTube 隱私加強模式；仍需要網路，且影片擁有者需允許嵌入。</p></div>
+            </li>
+            <li>
+              <span>02</span>
+              <div><strong>歌詞以現場版本為準</strong><p>本站僅提供簡短唱法提示，不重製未授權的完整歌詞。</p></div>
+            </li>
+            <li>
+              <span>03</span>
+              <div><strong>新分頁看完整動作</strong><p>「看應援舞」會開啟來源影片，方便放大、降速與重複練習。</p></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">B</span>
+          <div><strong>CTBC Brothers 應援曲庫</strong><p>為下一次進場，把聲音準備好。</p></div>
+        </div>
+        <p class="legal">
+          本站為非官方球迷整理，與球團無隸屬或合作關係。球團名稱、影片、音樂及相關素材權利歸原權利人所有。<br />
+          <span>最後整理：2026 年 10 月</span>
+        </p>
+      </div>
+    </footer>
+
+    <div id="live-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <template id="card-template">
+      <article class="cheer-card">
+        <div class="card-topline">
+          <span class="category-badge"></span>
+          <span class="verify-badge"></span>
+        </div>
+        <div class="card-identity">
+          <span class="player-number" aria-hidden="true"></span>
+          <div>
+            <p class="card-subtitle"></p>
+            <h3 class="card-title"></h3>
+          </div>
+        </div>
+        <p class="card-description"></p>
+        <details class="chant-details">
+          <summary>歌詞／唱法提示 <span aria-hidden="true">＋</span></summary>
+          <div class="chant-content"></div>
+        </details>
+        <div class="card-actions">
+          <button type="button" class="play-button"><span aria-hidden="true">▶</span> 聽歌曲</button>
+          <a class="dance-link" target="_blank" rel="noopener noreferrer">看應援舞 <span aria-hidden="true">↗</span></a>
+        </div>
+        <a class="source-link" target="_blank" rel="noopener noreferrer">影片來源 <span aria-hidden="true">↗</span></a>
+      </article>
+    </template>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

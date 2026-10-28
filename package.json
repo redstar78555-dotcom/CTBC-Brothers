@@ -1,0 +1,14 @@
+{
+  "name": "ctbc-brothers-cheer-library",
+  "version": "1.0.0",
+  "private": true,
+  "description": "中信兄弟應援曲繁體中文響應式網站",
+  "scripts": {
+    "dev": "node tests/server.cjs",
+    "test": "node tests/smoke.cjs",
+    "verify:youtube": "node tests/verify-youtube.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}
